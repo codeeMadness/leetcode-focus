@@ -8,18 +8,16 @@ public class ListNode {
          this.next = next;
      }
 
-     public static String toString(ListNode head) {
+     public static void print(ListNode head) {
          ListNode current = head;
 
-         if(current == null) return "No Node";
+         if(current == null)
+             System.out.println("No Node");
 
-         String result = "";
          while(current != null) {
-             result += current.val + " ";
+             System.out.println(current.val);
              current = current.next;
          }
-
-         return result;
      }
 
     public static ListNode reverseList(ListNode head) {
