@@ -8,6 +8,14 @@ public class ListNode {
          this.next = next;
      }
 
+     ListNode(int x) {
+         this.val = x;
+     }
+
+     ListNode() {
+         this.val = -9999;
+     }
+
      public static void print(ListNode head) {
          ListNode current = head;
 
