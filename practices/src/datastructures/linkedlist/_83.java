@@ -4,13 +4,13 @@ package datastructures.linkedlist;
 
 public class _83 {
     public static ListNode deleteDuplicates(ListNode head) {
-        ListNode list = head;
+        ListNode current = head;
 
-        while(list != null && list.next != null) {
-            if (list.val == list.next.val) {
-                list.next = list.next.next;
+        while(current != null && current.next != null) {
+            if (current.val == current.next.val) {
+                current.next = current.next.next;
             } else {
-                list = list.next;
+                current = current.next;
             }
         }
 

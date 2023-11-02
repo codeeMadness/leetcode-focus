@@ -20,16 +20,18 @@ public class ListNode {
          ListNode current = head;
 
          if(current == null)
-             System.out.println("No Node");
+             System.out.print("No Node");
 
          while(current != null) {
-             System.out.println(current.val);
+             System.out.print(current.val);
+             System.out.print("\t");
              current = current.next;
          }
+         System.out.println();
      }
 
     public static ListNode reverseList(ListNode head) {
-        ListNode prev = null;
+        ListNode prev = new ListNode();
         ListNode temp;
 
         while(head != null) {
@@ -40,5 +42,18 @@ public class ListNode {
         }
 
         return prev;
+    }
+
+    public static ListNode convert(int[] values) {
+         if(values.length == 0) return null;
+
+         ListNode head = new ListNode(values[0]);
+         ListNode current = head;
+         for(int i = 1; i < values.length; i++) {
+             current.next = new ListNode(values[i]);
+             current = current.next;
+         }
+
+         return head;
     }
 }
