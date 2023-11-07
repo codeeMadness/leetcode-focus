@@ -44,7 +44,7 @@ public class ListNode {
         return prev;
     }
 
-    public static ListNode convert(int[] values) {
+    public static ListNode convert(int... values) {
          if(values.length == 0) return null;
 
          ListNode head = new ListNode(values[0]);
