@@ -1,19 +1,19 @@
 package datastructures.linkedlist;
 
 public class ListNode {
-     public int val;
+     public Integer val;
      public ListNode next;
-     ListNode(int x, ListNode next) {
+     ListNode(Integer x, ListNode next) {
          this.val = x;
          this.next = next;
      }
 
-     ListNode(int x) {
+     ListNode(Integer x) {
          this.val = x;
      }
 
      ListNode() {
-         this.val = -9999;
+         this.val = null;
      }
 
      public static void print(ListNode head) {
@@ -30,7 +30,7 @@ public class ListNode {
          System.out.println();
      }
 
-    public static ListNode reverseList(ListNode head) {
+    public static ListNode reverse(ListNode head) {
         ListNode prev = new ListNode();
         ListNode temp;
 
@@ -44,7 +44,7 @@ public class ListNode {
         return prev;
     }
 
-    public static ListNode convert(int[] values) {
+    public static ListNode convert(int... values) {
          if(values.length == 0) return null;
 
          ListNode head = new ListNode(values[0]);
