@@ -6,14 +6,14 @@ import java.util.List;
 
 public class _445 {
 
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public static ListNode<Integer> addTwoNumbers(ListNode<Integer> l1, ListNode<Integer> l2) {
 
         //reverse
         l1 = ListNode.reverse(l1);
         l2 = ListNode.reverse(l2);
 
-        ListNode dummyHead = new ListNode(0);
-        ListNode tail = dummyHead;
+        ListNode<Integer> dummyHead = new ListNode(0);
+        ListNode<Integer> tail = dummyHead;
         int carry = 0;
 
         while (l1 != null || l2 != null || carry != 0) {

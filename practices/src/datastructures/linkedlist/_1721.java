@@ -6,7 +6,7 @@ import java.util.List;
 
 public class _1721 {
 
-    public static ListNode swapNodes(ListNode head, int k) {
+    public static ListNode<Integer> swapNodes(ListNode<Integer> head, int k) {
         int n = 0;
 
         //find length
@@ -19,8 +19,8 @@ public class _1721 {
 
         int left = k-1;
         int right = n - k;
-        ListNode leftNode = new ListNode();
-        ListNode rightNode = new ListNode();
+        ListNode<Integer> leftNode = new ListNode();
+        ListNode<Integer> rightNode = new ListNode();
         current = head;
 
         for(int i = 0; i < n; i++) {

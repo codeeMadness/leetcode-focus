@@ -1,14 +1,14 @@
 package datastructures.linkedlist;
 
-public class ListNode {
-     public Integer val;
+public class  ListNode<T> {
+     public T val;
      public ListNode next;
-     ListNode(Integer x, ListNode next) {
+     ListNode(T x, ListNode next) {
          this.val = x;
          this.next = next;
      }
 
-     ListNode(Integer x) {
+     ListNode(T x) {
          this.val = x;
      }
 
@@ -44,7 +44,7 @@ public class ListNode {
         return prev;
     }
 
-    public static ListNode convert(int... values) {
+    public static <T> ListNode convert(T... values) {
          if(values.length == 0) return null;
 
          ListNode head = new ListNode(values[0]);
