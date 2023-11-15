@@ -2,20 +2,53 @@ package datastructures.linkedlist;
 
 //https://leetcode.com/problems/lru-cache/
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class _146 {
 
     static class LRUCache {
+        private int capacity = 0;
+        private int currentSize = 0;
+        private ListNode<Integer> head = new ListNode<>();
+        private ListNode<Integer> tail = head;
+
+        private final Map<Integer, Integer> data = new HashMap<>();
 
         public LRUCache(int capacity) {
-
+            this.capacity = capacity;
         }
 
         public int get(int key) {
-            return 0;
+            ListNode<Integer> pointer = head;
+            while(pointer != null) {
+                if(pointer.val == key) {
+                    tail.next = pointer;
+                    tail = tail.next;
+                }
+                pointer = pointer.next;
+            }
+            return data.getOrDefault(key, -1);
         }
 
         public void put(int key, int value) {
+            if(currentSize == capacity) {
+                data.remove(head.val);
+                head = head.next;
+                currentSize--;
+            }
 
+            data.put(key, value);
+
+            ListNode<Integer> newNode = new ListNode<>(key);
+            if(currentSize == 0)
+                head = newNode;
+            else {
+                tail.next = newNode;
+                tail = tail.next;
+            }
+
+            currentSize++;
         }
     }
 
