@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class _1171 {
     public static ListNode<Integer> removeZeroSumSublists(ListNode<Integer> head) {
-        ListNode<Integer> dummy = new ListNode(0); //trick
+        ListNode<Integer> dummy = new ListNode(0);
         ListNode<Integer> current = dummy;
         dummy.next = head;
 
