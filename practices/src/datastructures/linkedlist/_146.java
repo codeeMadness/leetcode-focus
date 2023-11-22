@@ -63,7 +63,7 @@ public class _146 {
             map.put(key, node);
 
             //remove last node if capacity is full
-            if(map.size() > capacity) {
+            if(capacity < 0) {
                 Node lastNode = this.dummyTail.prev;
                 int theKey = lastNode.key;
                 map.remove(theKey);
@@ -77,6 +77,7 @@ public class _146 {
             firstNode.prev = node;
             node.next = firstNode;
             node.prev = this.dummyHead;
+            this.capacity -= 1;
         }
 
         private void remove(Node node) {
@@ -84,6 +85,7 @@ public class _146 {
             Node nextNode = node.next;
             prevNode.next = nextNode;
             nextNode.prev = prevNode;
+            this.capacity += 1;
         }
     }
 
