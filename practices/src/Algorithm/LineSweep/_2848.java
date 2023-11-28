@@ -1,4 +1,4 @@
-package Algorthm.LineSweep;
+package Algorithm.LineSweep;
 
 //https://leetcode.com/problems/points-that-intersect-with-cars/
 
