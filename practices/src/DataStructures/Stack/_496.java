@@ -7,16 +7,16 @@ import java.util.Stack;
 
 public class _496 {
     public static int[] findGreaterElement(int[] arr) {
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> indexes = new Stack<>();
         int[] ans = new int[arr.length];
         Arrays.fill(ans, -1);
 
         for(int i = 0; i < arr.length; ++i) {
             int num = arr[i];
-            while(!stack.isEmpty() && arr[stack.peek()] < num) {
-                ans[stack.pop()] = num;
+            while(!indexes.isEmpty() && arr[indexes.peek()] < num) {
+                ans[indexes.pop()] = num;
             }
-            stack.add(i);
+            indexes.push(i);
         }
 
         return ans;
