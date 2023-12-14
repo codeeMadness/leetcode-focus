@@ -24,7 +24,7 @@ public class _20 {
             }else {
                 if(stack.isEmpty()) return false;
                 Character last = stack.pop();
-                if(last != map.get(current))
+                if(last != map.get(current)) //the nearest valid parentheses
                     return false;
             }
 
