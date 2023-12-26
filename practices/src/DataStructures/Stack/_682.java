@@ -9,31 +9,38 @@ public class _682 {
     public static int calPoints(String[] operations) {
         Stack<Integer> scores = new Stack<>();
 
-        int sum = 0;
         for(String operation : operations) {
-
+            if(operation.equals("C")) {
+                scores.pop();
+            }
+            else if(operation.equals("D")) {
+                int score = scores.peek();
+                scores.push(score * 2);
+            }
+            else if(operation.equals("+")) {
+                int score = scores.pop();
+                int sum = score + scores.peek();
+                scores.push(score);
+                scores.push(sum);
+            }
+            else {
+                int score = Integer.parseInt(operation);
+                scores.push(score);
+            }
         }
 
-
+        int sum = 0;
+        while(!scores.isEmpty()) {
+            sum += scores.pop();
+        }
 
         return sum;
     }
 
-    public static Integer[] isNumeric(String strNum) {
-        Integer[] res = new Integer[]{null, 0};
-        if (strNum == null) {
-            return res;
-        }
-        try {
-            Integer d = Integer.parseInt(strNum);
-            res[1] = 1;
-        } catch (NumberFormatException nfe) {
-            return res;
-        }
-        return res;
-    }
-
     public static void main(String[] args) {
-
+        String[] ops = {"5","2","C","D","+"}; //30
+//        String[] ops = {"5","-2","4","C","D","9","+","+"}; //27
+//        String[] ops = {"1","C"}; //0
+        System.out.println(calPoints(ops));
     }
 }

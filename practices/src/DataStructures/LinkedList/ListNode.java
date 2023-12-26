@@ -3,16 +3,16 @@ package DataStructures.LinkedList;
 public class  ListNode<T> {
      public T val;
      public ListNode next;
-     ListNode(T x, ListNode next) {
+     public ListNode(T x, ListNode next) {
          this.val = x;
          this.next = next;
      }
 
-     ListNode(T x) {
+    public ListNode(T x) {
          this.val = x;
      }
 
-     ListNode() {
+    public ListNode() {
          this.val = null;
      }
 
