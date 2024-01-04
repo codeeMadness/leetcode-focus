@@ -6,7 +6,15 @@ import DataStructures.LinkedList.ListNode;
 
 public class _206 {
     public static ListNode<Integer> reverseList(ListNode<Integer> head) {
-        return null;
+        return reverse(head, null);
+    }
+
+    private static ListNode<Integer> reverse(ListNode<Integer> head, ListNode<Integer> newHead) {
+        if (head == null)
+            return newHead;
+        ListNode next = head.next;
+        head.next = newHead;
+        return reverse(next, head);
     }
 
     public static void main(String[] args) {
