@@ -22,20 +22,18 @@ public class _24 {
         return swap(first.next, first.next.next);
     }
 
-    public ListNode swapPairs2(ListNode head) {
+    public static ListNode swapPairs2(ListNode head) {
         if ((head == null)||(head.next == null))
             return head;
         ListNode n = head.next;
-        head.next = swapPairs(head.next.next);
+        head.next = swapPairs2(head.next.next);
         n.next = head;
         return n;
     }
 
     public static void main(String[] args) {
-//        ListNode<Integer> head = ListNode.convert(1,2,3,4,5,6,7);
+        ListNode<Integer> head = ListNode.convert(1,2,3,4,5,6);
 //        ListNode<Integer> head = ListNode.convert(1);
-        ListNode<Integer> head = ListNode.convert();
-        ListNode<Integer> newHead = swapPairs(head);
-        ListNode.print(newHead);
+        ListNode.print(swapPairs2(head));
     }
 }
