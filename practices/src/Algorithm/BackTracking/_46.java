@@ -7,18 +7,18 @@ import java.util.*;
 public class _46 {
     public static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
-        dfs(result, new LinkedHashSet<>(), nums);
+        backtrack(result, new LinkedHashSet<>(), nums);
         return result;
     }
 
-    private static void dfs(List<List<Integer>> result, Set<Integer> path, int[] nums) {
+    private static void backtrack(List<List<Integer>> result, Set<Integer> path, int[] nums) {
         if (path.size() == nums.length) {
             result.add(new ArrayList<>(path));
             return;
         }
         for (int num : nums) {
             if (path.add(num)) {
-                dfs(result, path, nums);
+                backtrack(result, path, nums);
                 path.remove(num);
             }
         }
