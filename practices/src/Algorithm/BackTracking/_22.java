@@ -8,27 +8,28 @@ import java.util.List;
 public class _22 {
 
     public static List<String> generateParenthesis(int n) {
-        List<String> res = new ArrayList<>();
-        generate(res, "", n, 0);
-        return res;
+        List<String> list = new ArrayList<>();
+        backtrack(list, "", 0, 0, n);
+        return list;
     }
 
-    private static void generate(List<String> res, String s, int n, int l) {
-        if(s.length() == n * 2) {
-            res.add(s);
+    public static void backtrack(List<String> list, String str, int open, int close, int n){
+
+        if(str.length() == n*2){
+            list.add(str);
             return;
         }
 
-        if(l < n)
-            generate(res, s + "(", n, l+1);
-        if(l > (s.length() / 2))
-            generate(res, s + ")", n, l);
+        if(open < n)
+            backtrack(list, str+"(", open+1, close, n);
 
+        if(close < open)
+            backtrack(list, str+")", open, close+1, n);
     }
 
     public static void main(String[] args) {
-        int n = 3;
-//        int n = 2;
+//        int n = 3;
+        int n = 2;
 //        int n = 1;
         generateParenthesis(n).forEach(System.out::println);
     }
