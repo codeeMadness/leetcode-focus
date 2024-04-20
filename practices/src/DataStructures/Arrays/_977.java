@@ -20,8 +20,8 @@ public class _977 {
 
 
         while(l <= r) {//O(n)
-            int start = nums[l] * nums[l];//O(1)
-            int end = nums[r] * nums[r];//O(1)
+            int start = (int) Math.pow(nums[l],2);//O(1)
+            int end = (int) Math.pow(nums[r],2);//O(1)
             if(start < end) {
                 sqrtNums[index] = end;
                 r--;
