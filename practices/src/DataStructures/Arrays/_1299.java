@@ -13,15 +13,21 @@ public class _1299 {
         int max = -1;
         int i = arr.length - 1;
 
+        //last element is always -1
         int[] result = new int[arr.length];
         result[i] = -1;
 
-        while(i-1 >= 0) {
-            if(arr[i] > max) {
+        //looping reverse since the last second item
+        while (i-1 >= 0) {
+
+            //compare the last element with max
+            if (arr[i] > max) {
                 max = arr[i];
             }
+
             result[i-1] = max;
             i--;
+
         }
 
 
