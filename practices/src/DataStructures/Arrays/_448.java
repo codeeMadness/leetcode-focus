@@ -41,11 +41,28 @@ public class _448 {
         return result;
     }
 
+    public static List<Integer> findDisappearedNumbers2(int[] nums) {
+        List<Integer> result = new ArrayList<>();
+        int[] arr = new int[nums.length+1];
+        Arrays.fill(arr, 0);
+
+        for(int num : nums) {
+            arr[num] += 1;
+        }
+
+        for(int i = 1; i < arr.length; i++) {
+            if(arr[i] == 0)
+                result.add(i);
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
         int[] nums = {4,3,2,7,8,2,3,1};
 //        int[] nums = {1,1};
 //        List<Integer> result = findDisappearedNumbers(nums);
-        List<Integer> result = findDisappearedNumbers1(nums);
+        List<Integer> result = findDisappearedNumbers2(nums);
         result.forEach(System.out::println);
     }
 }

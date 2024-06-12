@@ -3,6 +3,8 @@ package DataStructures.Stack;
 //https://leetcode.com/problems/next-greater-element-i/description/
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 public class _496 {
@@ -22,8 +24,17 @@ public class _496 {
         return ans;
     }
 
-    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        return null;
+    public int[] nextGreaterElement(int[] findNums, int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>(); // map from x to next greater element of x
+        Stack<Integer> stack = new Stack<>();
+        for (int num : nums) {
+            while (!stack.isEmpty() && stack.peek() < num)
+                map.put(stack.pop(), num);
+            stack.push(num);
+        }
+        for (int i = 0; i < findNums.length; i++)
+            findNums[i] = map.getOrDefault(findNums[i], -1);
+        return findNums;
     }
 
     public static void main(String[] args) {
