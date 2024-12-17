@@ -12,64 +12,29 @@ public class _88 {
         }
     }
 
-    public static void attempt() {
-        int[] nums1 = {1,2,3,0,0,0};
-        int m = 3;
-        int[]  nums2 = {2,5,6};
-        int n = 3;
-        //output: {1,2,2,3,5,6}
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        int midx = m - 1;
+        int nidx = n - 1;
+        int right = m + n - 1; //Points to the last index in nums1
 
-        if(n == 0) return;
-        int i = 0, j= 0;
-        while(i < nums1.length) {
-            if(nums1[i] >= nums2[j]) {
-                shiftRight(nums1, i);
-                nums1[i+1] = nums2[j];
-                i++;
-                j++;
+        while (nidx >= 0) {
+            if (midx >= 0 && nums1[midx] > nums2[nidx]) {
+                nums1[right] = nums1[midx];
+                midx--;
+            } else {
+                nums1[right] = nums2[nidx];
+                nidx--;
             }
-            else if(nums1[i] == 0) {
-                nums1[i] = nums2[j];
-                j++;
-            }
-            i++;
-        }
-
-        System.out.println(Arrays.toString(nums1));
-    }
-
-    public static void attempt2() {
-        int[] nums1 = {1,3,3,0,0,0};
-        int m = 3;
-        int[]  nums2 = {2,5,6};
-        int n = 3;
-
-        //variables to work as pointers
-        int i=m-1; // will point at m-1 index of nums1 array
-        int j=n-1; // will point at n-1 index of nums2 array
-        int k=nums1.length-1; //will point at the last position of the nums1 array
-
-        // Now traversing the nums2 array
-        while(j>=0){
-
-            if(i>=0 && nums1[i]>nums2[j]){
-                nums1[k]=nums1[i];
-                k--;
-                i--;
-            }else{
-
-                nums1[k] = nums2[j];
-                k--;
-                j--;
-            }
+            right--;
         }
 
         System.out.println(Arrays.toString(nums1));
     }
 
     public static void main(String[] args) {
-//        attempt();
-        attempt2();
+        int[] nums1 = {-1,0,0,3,3,0,0,0}; int m = 5;  int[] nums2 = {1,2,2}; int n = 3;
+        merge(nums1, m, nums2, n);
+//        attempt2();
 
     }
 }
