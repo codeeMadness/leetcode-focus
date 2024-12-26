@@ -2,9 +2,6 @@ package Practice.Easy;
 
 //https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class _28 {
     public static int strStr(String haystack, String needle) {
         int i = 0, j = 0;

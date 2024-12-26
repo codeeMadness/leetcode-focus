@@ -5,14 +5,30 @@ public class TreeNode<T> {
       TreeNode left;
       TreeNode right;
       TreeNode() {}
-      TreeNode(T val) { this.val = val; }
-      TreeNode(T val, TreeNode left, TreeNode right) {
+      public TreeNode(T val) { this.val = val; }
+      public TreeNode(T val, TreeNode left, TreeNode right) {
           this.val = val;
           this.left = left;
           this.right = right;
       }
 
-      public static <T> TreeNode convert(T[] array) {
+    public TreeNode getLeft() {
+        return left;
+    }
+
+    public void setLeft(TreeNode left) {
+        this.left = left;
+    }
+
+    public TreeNode getRight() {
+        return right;
+    }
+
+    public void setRight(TreeNode right) {
+        this.right = right;
+    }
+
+    public static <T> TreeNode convert(T[] array) {
           if(array.length == 0 || null == array[0]) return null;
           int i = 0;
           TreeNode root = new TreeNode(array[i]);
