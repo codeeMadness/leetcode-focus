@@ -4,6 +4,7 @@ package Practice.Easy;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 public class _168 {
     public static Map<Integer, String> alphabets;
@@ -38,34 +39,28 @@ public class _168 {
     }
 
     public static String convertToTitle(int columnNumber) {
-        if(columnNumber <= 26) {
-            return alphabets.get(columnNumber);
+        Stack<String> s = new Stack<>();
+        findCharacter(s, columnNumber);
+        String res = "";
+        while(!s.isEmpty()) {
+            res += s.pop();
         }
+        return res;
+    }
 
-        String[] res = new String[] {"", "", ""};
-        Integer current;
+    private static void findCharacter(Stack<String> stack, int columnNumber) {
+        if(columnNumber <= 26) {
+            stack.push(alphabets.get(columnNumber));
+            return;
+        }
 
         for(Integer i : alphabets.keySet()) {
             if((columnNumber - i) % 26 == 0) {
-                res[2] = alphabets.get(i);
-                current = i;
-                columnNumber = (columnNumber - current) / 26;
+                stack.push(alphabets.get(i));
+                findCharacter(stack, (columnNumber-i)/26);
                 break;
             }
         }
-
-        for(Integer j : alphabets.keySet()) {
-            if((columnNumber - j) % 26 == 0) {
-                res[1] = alphabets.get(j);
-                columnNumber = (columnNumber - j) / 26;
-                if(columnNumber > 0) {
-                    res[0] = alphabets.get(columnNumber);
-                }
-                break;
-            }
-        }
-
-        return String.join("", res);
     }
 
     public static void main(String[] args) {
