@@ -12,6 +12,10 @@ public class TreeNode<T> {
           this.right = right;
       }
 
+    public T getVal() {
+        return val;
+    }
+
     public TreeNode getLeft() {
         return left;
     }
